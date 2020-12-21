@@ -15,13 +15,18 @@ name = "mybin"
 path = "src/bin.rs"
 
 [dependencies]
-communication_traits = { path = "../communication_traits" }
+simulation_state = { path = "../simulation_state" }
+communication_protocols = { path = "../communication_protocols" }
 building_model = { path = "../building_model" }
 people = { path = "../people" }
 calendar = { path = "../calendar" }
 weather = { path = "../weather" }
 multiphysics_model = { path = "../physics/multiphysics_model" }
+controller = { path = "../controller" }
 
 [dev-dependencies]
 geometry3d = {path = "../geometry3d"}
 schedule = { path = "../schedule" }
+polynomial = { path = "../polynomial" }
+simple_test_buildings = {path = "../simple_test_buildings"}
+simple_test_people = {path = "../simple_test_people"}

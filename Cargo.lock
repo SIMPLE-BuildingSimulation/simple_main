@@ -4,8 +4,8 @@
 name = "building_model"
 version = "0.1.0"
 dependencies = [
- "derive-getters",
  "geometry3d",
+ "simulation_state",
 ]
 
 [[package]]
@@ -13,10 +13,22 @@ name = "calendar"
 version = "0.1.0"
 
 [[package]]
-name = "communication_traits"
+name = "communication_protocols"
 version = "0.1.0"
 dependencies = [
  "building_model",
+ "simulation_state",
+ "weather",
+]
+
+[[package]]
+name = "controller"
+version = "0.1.0"
+dependencies = [
+ "building_model",
+ "calendar",
+ "multiphysics_model",
+ "simulation_state",
  "weather",
 ]
 
@@ -28,27 +40,17 @@ dependencies = [
 ]
 
 [[package]]
-name = "derive-getters"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0c5905670fd9c320154f3a4a01c9e609733cd7b753f3c58777ab7d5ce26686b3"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "finite_difference_thermal_model"
 version = "0.1.0"
 dependencies = [
  "building_model",
  "calendar",
- "communication_traits",
+ "communication_protocols",
  "convection",
  "gas_properties",
  "geometry3d",
  "matrix",
+ "simulation_state",
  "weather",
 ]
 
@@ -70,8 +72,9 @@ version = "0.1.0"
 dependencies = [
  "building_model",
  "calendar",
- "communication_traits",
+ "communication_protocols",
  "finite_difference_thermal_model",
+ "simulation_state",
  "weather",
 ]
 
@@ -81,27 +84,18 @@ version = "0.1.0"
 dependencies = [
  "building_model",
  "calendar",
+ "communication_protocols",
+ "controller",
  "multiphysics_model",
+ "polynomial",
  "schedule",
+ "simulation_state",
+ "weather",
 ]
 
 [[package]]
-name = "proc-macro2"
-version = "1.0.24"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1e0704ee1a7e00d7bb417d0770ea303c1bccbabf0ef1667dae92b5967f5f8a71"
-dependencies = [
- "unicode-xid",
-]
-
-[[package]]
-name = "quote"
-version = "1.0.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa563d17ecb180e500da1cfd2b028310ac758de548efdd203e18f283af693f37"
-dependencies = [
- "proc-macro2",
-]
+name = "polynomial"
+version = "0.1.0"
 
 [[package]]
 name = "schedule"
@@ -116,30 +110,41 @@ version = "0.1.0"
 dependencies = [
  "building_model",
  "calendar",
- "communication_traits",
+ "communication_protocols",
+ "controller",
  "geometry3d",
  "multiphysics_model",
  "people",
+ "polynomial",
  "schedule",
+ "simple_test_buildings",
+ "simple_test_people",
+ "simulation_state",
  "weather",
 ]
 
 [[package]]
-name = "syn"
-version = "1.0.53"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8833e20724c24de12bbaba5ad230ea61c3eafb05b881c7c9d3cfe8638b187e68"
+name = "simple_test_buildings"
+version = "0.1.0"
 dependencies = [
- "proc-macro2",
- "quote",
- "unicode-xid",
+ "building_model",
+ "geometry3d",
+ "simulation_state",
 ]
 
 [[package]]
-name = "unicode-xid"
-version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7fe0bb3479651439c9112f72b6c505038574c9fbb575ed1bf3b797fa39dd564"
+name = "simple_test_people"
+version = "0.1.0"
+dependencies = [
+ "people",
+ "polynomial",
+ "schedule",
+ "simulation_state",
+]
+
+[[package]]
+name = "simulation_state"
+version = "0.1.0"
 
 [[package]]
 name = "weather"
