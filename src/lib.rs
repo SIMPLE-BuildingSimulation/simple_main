@@ -1,7 +1,7 @@
 use simulation_state::simulation_state::SimulationState;
 use building_model::building::Building;
 use communication_protocols::simulation_model::SimulationModel;
-use controller::Controller;
+//use controller::Controller;
 
 use calendar::date_factory::DateFactory;
 use calendar::date::Date;
@@ -38,16 +38,16 @@ pub fn run(start: Date, end: Date, person: &dyn People, building: &Building, sta
     for date in sim_period {    
             
         // Get the current weather data
-        let current_weather = weather.get_weather_data(date);
+        //let current_weather = weather.get_weather_data(date);
 
         // Make the model march
-        match model.march(building, state, &current_weather ) {
+        match model.march(date, weather, building, state ) {
             Ok(_)=>{},
             Err(e) => panic!(e)
         }
 
         // Control the building or person, if needed        
-        if person.control(date, building, &model, state) {
+        if person.control(date, weather, building, &model, state) {
             println!("Person did something!");
         }
         println!("======")
@@ -94,7 +94,7 @@ mod testing{
         let building = get_single_zone_building(&mut state);
 
         let mut weather = SyntheticWeather::new();
-        weather.dry_bulb_temperature = Box::new(ScheduleConstant::new(-46.));
+        weather.dry_bulb_temperature = Box::new(ScheduleConstant::new(222.));
 
         let start = Date{
             day: 1,
@@ -103,7 +103,7 @@ mod testing{
         };
 
         let mut end = start.clone();
-        end.add_hours(350.0);// simulate one week
+        end.add_hours(0.5);// simulate one week
 
         let n = 12; // tsteps per hour
 

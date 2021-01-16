@@ -4,6 +4,7 @@
 name = "building_model"
 version = "0.1.0"
 dependencies = [
+ "calendar",
  "geometry3d",
  "simulation_state",
 ]
@@ -17,6 +18,7 @@ name = "communication_protocols"
 version = "0.1.0"
 dependencies = [
  "building_model",
+ "calendar",
  "simulation_state",
  "weather",
 ]
