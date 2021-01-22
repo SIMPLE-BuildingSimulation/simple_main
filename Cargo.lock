@@ -12,6 +12,9 @@ dependencies = [
 [[package]]
 name = "calendar"
 version = "0.1.0"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "communication_protocols"
@@ -29,7 +32,9 @@ version = "0.1.0"
 dependencies = [
  "building_model",
  "calendar",
+ "erased-serde",
  "multiphysics_model",
+ "serde",
  "simulation_state",
  "weather",
 ]
@@ -39,6 +44,15 @@ name = "convection"
 version = "0.1.0"
 dependencies = [
  "building_model",
+]
+
+[[package]]
+name = "erased-serde"
+version = "0.3.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0465971a8cc1fa2455c8465aaa377131e1f1cf4983280f474a13e68793aa770c"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -65,6 +79,12 @@ name = "geometry3d"
 version = "0.1.0"
 
 [[package]]
+name = "itoa"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dd25036021b0de88a0aff6b850051563c6516d0bf53f8638938edbb9de732736"
+
+[[package]]
 name = "matrix"
 version = "0.1.0"
 
@@ -88,9 +108,11 @@ dependencies = [
  "calendar",
  "communication_protocols",
  "controller",
+ "erased-serde",
  "multiphysics_model",
  "polynomial",
  "schedule",
+ "serde",
  "simulation_state",
  "weather",
 ]
@@ -100,10 +122,65 @@ name = "polynomial"
 version = "0.1.0"
 
 [[package]]
+name = "proc-macro2"
+version = "1.0.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1e0704ee1a7e00d7bb417d0770ea303c1bccbabf0ef1667dae92b5967f5f8a71"
+dependencies = [
+ "unicode-xid",
+]
+
+[[package]]
+name = "quote"
+version = "1.0.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "991431c3519a3f36861882da93630ce66b52918dcf1b8e2fd66b397fc96f28df"
+dependencies = [
+ "proc-macro2",
+]
+
+[[package]]
+name = "ryu"
+version = "1.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "71d301d4193d031abdd79ff7e3dd721168a9572ef3fe51a1517aba235bd8f86e"
+
+[[package]]
 name = "schedule"
 version = "0.1.0"
 dependencies = [
  "calendar",
+]
+
+[[package]]
+name = "serde"
+version = "1.0.120"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "166b2349061381baf54a58e4b13c89369feb0ef2eaa57198899e2312aac30aab"
+dependencies = [
+ "serde_derive",
+]
+
+[[package]]
+name = "serde_derive"
+version = "1.0.120"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0ca2a8cb5805ce9e3b95435e3765b7b553cecc762d938d409434338386cb5775"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "serde_json"
+version = "1.0.61"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4fceb2595057b6891a4ee808f70054bd2d12f0e97f1cbb78689b59f676df325a"
+dependencies = [
+ "itoa",
+ "ryu",
+ "serde",
 ]
 
 [[package]]
@@ -119,8 +196,21 @@ dependencies = [
  "people",
  "polynomial",
  "schedule",
+ "serde_json",
+ "simple_results",
  "simple_test_buildings",
  "simple_test_people",
+ "simulation_state",
+ "weather",
+]
+
+[[package]]
+name = "simple_results"
+version = "0.1.0"
+dependencies = [
+ "calendar",
+ "erased-serde",
+ "serde",
  "simulation_state",
  "weather",
 ]
@@ -147,6 +237,26 @@ dependencies = [
 [[package]]
 name = "simulation_state"
 version = "0.1.0"
+dependencies = [
+ "serde",
+]
+
+[[package]]
+name = "syn"
+version = "1.0.58"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc60a3d73ea6594cd712d830cc1f0390fd71542d8c8cd24e70cc54cdfd5e05d5"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-xid",
+]
+
+[[package]]
+name = "unicode-xid"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7fe0bb3479651439c9112f72b6c505038574c9fbb575ed1bf3b797fa39dd564"
 
 [[package]]
 name = "weather"
@@ -154,4 +264,5 @@ version = "0.1.0"
 dependencies = [
  "calendar",
  "schedule",
+ "serde",
 ]

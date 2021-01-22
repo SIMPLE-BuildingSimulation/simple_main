@@ -7,11 +7,11 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
-name = "mylib"
+name = "simple_lib"
 path = "src/lib.rs"
 
 [[bin]]
-name = "mybin"
+name = "simple"
 path = "src/bin.rs"
 
 [dependencies]
@@ -23,8 +23,10 @@ calendar = { path = "../calendar" }
 weather = { path = "../weather" }
 multiphysics_model = { path = "../physics/multiphysics_model" }
 controller = { path = "../controller" }
+simple_results = { path = "../simple_results" }
+serde_json = "1.0"
 
-[dev-dependencies]
+#[dev-dependencies]
 geometry3d = {path = "../geometry3d"}
 schedule = { path = "../schedule" }
 polynomial = { path = "../polynomial" }
