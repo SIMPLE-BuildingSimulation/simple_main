@@ -6,7 +6,7 @@ This is the main repository of the SIMPLE building simulation program.
 
 SIMPLE is an experimental Building Performance Simulation tool
 developed with the purpose of more appropriately integrating
-"people" experience and interact with the buildings they use. 
+how "people" experience and interact with the buildings they use. 
 Specifically, the research behind SIMPLE relates to 
 residential environments. The requirements for such a tool 
 were:
