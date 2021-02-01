@@ -40,15 +40,16 @@ If you want to understand a bit more the difference I make between Occupants and
 
 Since adding these features into traditional tools required 
 interventions that were way too big to be possible, SIMPLE 
-was developed from scratch. __What you can find in the 
-repositories now, however, is mostly a mock-up.__ That is to 
+was developed from scratch. __For now, what you can find in the 
+repositories (some of them are still private) is mostly a mock-up.__ That is to 
 say—due to time and resource restrictions—the emphasis has 
 been put on identifying the design patterns that would allow
 accomplishing integrating the require features explained 
 above. The physics, on its part, is just good enough to show 
 us that the design pattern works and that the way People's 
 experience in the building has been coded seems to be all 
-right. Everyone is welcome to contribute to what is missing.Contact me for that (german.molinalarrain@vuw.ac.nz).
+right. Everyone is welcome to contribute to what is missing. 
+Contact me for that (german.molinalarrain@vuw.ac.nz).
 
 
 As you can see in the dependencies (Cargo.toml file), SIMPLE
